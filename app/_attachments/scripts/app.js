@@ -18,6 +18,7 @@ angular.module('movieApp', ['ngRoute'])
 		filmSrv.getFilmography(acteur).then(function(data){
 			$scope.films = data;
 			console.log($scope.films);
+			opslaan();
 		});
 	});
 })
@@ -38,4 +39,29 @@ angular.module('movieApp', ['ngRoute'])
 		
 		return q.promise;
 	};
-})
+});
+function opslaan(){
+	
+	var acteur = $("#acteur").val();
+	var filmography = $("#filmography").val();
+	var doc = {};
+	
+	doc.acteur = acteur;
+	doc.filmography = filmography;
+	var json = JSON.stringify(doc);
+	console.log(json);
+	
+	$.ajax({
+		type:			'PUT',
+		url:				'../../' + acteur,
+		data:			json,
+		contentType: 	'application/json',
+		async:			true,
+		success:		function(data){
+
+		},
+		error:		function(XMLHttpRequest, textStatus, errorThrown){
+			console.log(errorThrown); 
+		}
+	});
+}
