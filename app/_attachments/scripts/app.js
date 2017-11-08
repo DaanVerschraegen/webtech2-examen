@@ -16,7 +16,8 @@ angular.module('movieApp', ['ngRoute'])
 		$scope.films = '';
 		var acteur = $('#acteurText').val();
 		filmSrv.getFilmography(acteur).then(function(data){
-
+			$scope.films = data;
+			console.log($scope.films);
 		});
 	});
 })
