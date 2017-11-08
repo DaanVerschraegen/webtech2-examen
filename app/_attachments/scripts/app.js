@@ -42,8 +42,8 @@ angular.module('movieApp', ['ngRoute'])
 });
 function opslaan(){
 	
-	var acteur = $("#acteur").val();
-	var filmography = $("#filmography").val();
+	var acteur = $('#acteur').val();
+	var filmography = $('#filmography').val();
 	var doc = {};
 	
 	doc.acteur = acteur;
